@@ -221,7 +221,6 @@ uname -r
     export PATH=$PATH:$XENOMAI_PATH/bin
     export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$XENOMAI_PATH/lib/pkgconfig
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$XENOMAI_PATH/lib
-    export OROCOS_TARGET=xenomai
     ' >> ~/.bashrc
 ```
 
