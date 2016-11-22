@@ -1,17 +1,20 @@
 > 开发环境搭建主要参考了 http://rtt-lwr.readthedocs.io/en/latest/rtpc/xenomai.html ，如果在PC机上直接安装ubuntu 14.04，则省掉windows上虚拟机安装步骤。
 
-## 在windows操作系统中安装VirtualBox虚拟机软件
+## 一、在windows操作系统中安装VirtualBox虚拟机软件
 
 下载地址： https://www.virtualbox.org/wiki/Downloads
 
 
-## 在虚拟机上安装Ubuntu 14.04
+## 二、在虚拟机上安装Ubuntu 14.04
 
 - 下载ubuntu映像文件
+
 到Ubuntu官网上下载映像文件 ubuntu-14.04.3-desktop-amd64.iso
 
 - 创建新虚拟机并安装ubuntu14.04
+
 打开VirtualBox，点击“新建”按钮创建新的虚拟机
+
 1） 在第一个对话框中设置
 
 虚拟电脑名称为rtcsd（也可自己起名字）
@@ -53,7 +56,7 @@ sudo apt-get update
 
 5）在终端中输入：sudo mount -t vboxsf vboxshare ~/share 即可实现共享文件夹的设置，实现在虚拟机下的ubuntu和windows共享文件的操作。
 
-## 安装Xenomai 2.6.5
+## 三、安装Xenomai 2.6.5
 
 - 在home目录下创建一个内核编译的工作目录
 
