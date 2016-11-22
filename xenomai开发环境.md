@@ -4,12 +4,35 @@
 
 下载地址： https://www.virtualbox.org/wiki/Downloads
 
+
 ## 在虚拟机上安装Ubuntu 14.04
 
 - 下载ubuntu映像文件
 到Ubuntu官网上下载映像文件 ubuntu-14.04.3-desktop-amd64.iso
 
 - 创建新虚拟机并安装ubuntu14.04
+打开VirtualBox，点击“新建”按钮创建新的虚拟机
+1） 在第一个对话框中设置
+
+虚拟电脑名称为rtcsd（也可自己起名字）
+
+类型为Linux
+
+版本为Ubuntu(64bit)
+
+2） 在第一个对话框中，内存大小可使用默认值
+
+3） 在第三个对话框中，选择“现在创建虚拟硬盘”
+
+4） 在第四个对话框中，选择“VDI（VirtualBox磁盘映像）”
+
+5） 在第五个对话框中，选择“动态分配”虚拟硬盘。
+
+6） 在第六个对话框中，设置虚拟硬盘大小，因为要进行Linux内核编译，最好把大小设为32GB
+
+创建虚拟机后点“启动”按钮，弹出“选择启动盘”对话框，选中之前下载的ubuntu-14.04.3-desktop-amd64.iso文件，按对话框上的“启动”按钮继续。
+
+进入Ubuntu安装界面，选择“Install Ubuntu”开始安装。
 
 安装完成后重启虚拟机，确认可以连接互联网。
 
@@ -21,15 +44,14 @@ sudo apt-get update
 - 设置VirtualBox虚拟机与windows的共享目录
 
 1）点击菜单 设备->安装增强功能，会弹出对话框要求输入密码。观察提示信息，等待安装完成。
-2）在windows下建立一个共享目录，如在D盘建立 "D:\myshare"。
-3）点击菜单 设备->共享文件夹，点击添加共享文件夹， 设置共享文件夹路径为 "D:\myshare"，命名一个共享文件夹名称如“vboxshare”，选中"固定分配"选项框，不选"只读分配"和"自动挂载"。
-4）重启ubuntu。
-5）在终端中输入：
-```
-sudo mount -t vboxsf vboxshare ~/share
-```
 
-即可实现共享文件夹的设置，实现在虚拟机下的ubuntu和windows共享文件的操作。
+2）在windows下建立一个共享目录，如在D盘建立 "D:\myshare"。
+
+3）点击菜单 设备->共享文件夹，点击添加共享文件夹， 设置共享文件夹路径为 "D:\myshare"，命名一个共享文件夹名称如“vboxshare”，选中"固定分配"选项框，不选"只读分配"和"自动挂载"。
+
+4）重启ubuntu。
+
+5）在终端中输入：sudo mount -t vboxsf vboxshare ~/share 即可实现共享文件夹的设置，实现在虚拟机下的ubuntu和windows共享文件的操作。
 
 ## 安装Xenomai 2.6.5
 
@@ -40,14 +62,14 @@ mkdir xenomai
 cd xenomai
 ```
 
-- 下载xenomai源代码
+- 下载xenomai源代码并解压缩到当前目录
 
 ```
 wget http://xenomai.org/downloads/xenomai/stable/xenomai-2.6.5.tar.bz2
 tar xfvj xenomai-2.6.5.tar.bz2
 ```
 
-- 下载Linux内核3.18.30源代码
+- 下载Linux内核3.18.30源代码并解压缩到当前目录
 
 ```
     wget https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.18.20.tar.gz
@@ -73,6 +95,7 @@ tar xfvj xenomai-2.6.5.tar.bz2
 ```
     make menuconfig
 ```
+
 进入配置界面后进行相关选项的修改：
 
 ```
@@ -132,7 +155,8 @@ tar xfvj xenomai-2.6.5.tar.bz2
 
 - 安装内核
 
-```    cd ..
+```   
+    cd ..
     sudo dpkg -i linux-headers-3.18.20-xenomai-2.6.5_3.18.20-xenomai-2.6.5-10.00.Custom_amd64.deb linux-image-3.18.20-xenomai-2.6.5_3.18.20-xenomai-2.6.5-10.00.Custom_amd64.deb
 ```
 
