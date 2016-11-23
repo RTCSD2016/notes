@@ -83,6 +83,7 @@ tar xfvj xenomai-2.6.5.tar.bz2
 
 ```
     sudo apt install kernel-package
+    sudo apt-get install libncurses-dev
 ```
 
 - 给Linux内核打上Xenomai ipipe补丁
@@ -99,7 +100,7 @@ tar xfvj xenomai-2.6.5.tar.bz2
     make menuconfig
 ```
 
-进入配置界面后进行相关选项的修改：
+如提示分辨率不够无法进入图形化配置界面，则确认是否安装成功了虚拟机的增强功能。进入配置界面后进行相关选项的修改：
 
 ```
     * Real-time sub-system
