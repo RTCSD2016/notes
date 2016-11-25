@@ -183,6 +183,7 @@ sudo gedit /etc/default/grub
 ```
     GRUB_DEFAULT=saved
     GRUB_SAVEDEFAULT=true
+    # GRUB_HIDDEN_TIMEOUT_QUIET=0
     GRUB_HIDDEN_TIMEOUT_QUIET=true
     GRUB_TIMEOUT=5
     GRUB_CMDLINE_LINUX_DEFAULT="quiet splash xeno_nucleus.xenomai_gid=1234 xenomai.allowed_group=1234"
@@ -234,3 +235,32 @@ uname -r
 ```
 
 至此xenomai开发环境已建立起来。
+
+## 测试
+
+在命令行中输入并执行
+
+```bash
+    xeno latency -T 25
+```
+
+如果一切正常，那么会有类似以下的结果
+
+```
+# xeno latency -T 25
+== Sampling period: 100 us
+== Test mode: periodic user-mode task
+== All results in microseconds
+warming up...
+RTT|  00:00:01  (periodic user-mode task, 100 us period, priority 99)
+RTH|----lat min|----lat avg|----lat max|-overrun|---msw|---lat best|--lat worst
+RTD|      1.615|      1.923|      9.846|       0|     0|      1.615|      9.846
+RTD|      1.615|      1.923|      9.692|       0|     0|      1.615|      9.846
+RTD|      1.538|      1.923|     10.230|       0|     0|      1.538|     10.230
+RTD|      1.615|      1.923|     10.384|       0|     0|      1.538|     10.384
+RTD|      1.615|      1.923|     11.230|       0|     0|      1.538|     11.230
+RTD|      1.615|      1.923|      9.923|       0|     0|      1.538|     11.230
+RTD|      1.615|      1.923|      9.923|       0|     0|      1.538|     11.230
+RTD|      1.615|      1.923|     11.076|       0|     0|      1.538|     11.230
+RTD|      1.615|      1.923|     10.538|       0|     0|      1.538|     11.230
+```
