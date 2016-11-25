@@ -54,7 +54,15 @@ sudo apt-get update
 
 4）重启ubuntu。
 
-5）在终端中输入：sudo mount -t vboxsf vboxshare ~/share 即可实现共享文件夹的设置，实现在虚拟机下的ubuntu和windows共享文件的操作。
+5）在Home目录下创建一个共享目录：
+
+mkdir ~/share
+
+6）输入mount命令：
+
+sudo mount -t vboxsf vboxshare ~/share 
+
+即可实现共享文件夹的设置，实现在虚拟机下的ubuntu和windows共享文件的操作。
 
 ## 三、安装Xenomai 2.6.5
 
